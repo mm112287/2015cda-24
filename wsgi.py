@@ -87,8 +87,7 @@ class Hello(object):
         國立虎尾科技大學，機械設計系二年甲板，協同產品設計，第八組24號的個人網頁<br/>
     <a href="legoman">樂高機器人組立</a><br/>
     <a href="index2">協同齒輪</a><br/>
-
-
+    <a href="CMS">CMSimply</a><br/>
 
         '''
         return outstring
