@@ -14,6 +14,7 @@ import random
 # 導入 gear 模組
 import gear
 import legoman
+import CMS
 ################# (2) 廣域變數設定區
 # 確定程式檔案所在目錄, 在 Windows 下有最後的反斜線
 _curdir = os.path.join(os.getcwd(), os.path.dirname(__file__))
@@ -795,6 +796,7 @@ application_conf = {'/static':{
 root = Hello()
 root.gear = gear.Gear()
 root.legoman = legoman.MAN()
+root.CMS=CMS.CMSimply()
 cherrypy.server.socket_port = 8082
 cherrypy.server.socket_host = '127.0.0.1'
 if 'OPENSHIFT_REPO_DIR' in os.environ.keys():
