@@ -88,7 +88,7 @@ class Hello(object):
     <a href="legoman">樂高機器人組立</a><br/>
     <a href="index2">協同齒輪</a><br/>
     <a href="geartest">協同第二次上機期末考個人版</a><br/>
-    <a href="geartest2">協同第二次上機期末考協同版</a><br/>
+    <a href="geartest3">協同第二次上機期末考協同版</a><br/>
     <a href="CMS">CMSimply</a><br/>
 
         '''
@@ -348,7 +348,7 @@ class Hello(object):
     <!-- 啟動 brython() -->
     <body onload="brython()">
         
-    <form method=\"post\" action=\"geartest2\">
+    <form method=\"post\" action=\"geartest4\">
         <fieldset>
         <legend>協同考試上下齒輪嚙合齒輪參數表單值:</legend>
         齒數1:<br />

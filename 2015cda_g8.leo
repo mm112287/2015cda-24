@@ -306,7 +306,7 @@ def geartest3(self, K=None, N=None, inp2=None):
 &lt;!-- 啟動 brython() --&gt;
 &lt;body onload="brython()"&gt;
     
-&lt;form method=\"post\" action=\"geartest2\"&gt;
+&lt;form method=\"post\" action=\"geartest4\"&gt;
     &lt;fieldset&gt;
     &lt;legend&gt;協同考試上下齒輪嚙合齒輪參數表單值:&lt;/legend&gt;
     齒數1:&lt;br /&gt;
@@ -1405,7 +1405,7 @@ def index(self, K=None, N=None, inp2=None):
 &lt;a href="legoman"&gt;樂高機器人組立&lt;/a&gt;&lt;br/&gt;
 &lt;a href="index2"&gt;協同齒輪&lt;/a&gt;&lt;br/&gt;
 &lt;a href="geartest"&gt;協同第二次上機期末考個人版&lt;/a&gt;&lt;br/&gt;
-&lt;a href="geartest2"&gt;協同第二次上機期末考協同版&lt;/a&gt;&lt;br/&gt;
+&lt;a href="geartest3"&gt;協同第二次上機期末考協同版&lt;/a&gt;&lt;br/&gt;
 &lt;a href="CMS"&gt;CMSimply&lt;/a&gt;&lt;br/&gt;
 
     '''
