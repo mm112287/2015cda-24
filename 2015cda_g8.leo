@@ -81,7 +81,7 @@ def geartest(self, K=None, N=None, inp2=None):
     齒數1:&lt;br /&gt;
     &lt;select name="ng1"&gt;
     '''
-    for j in range(15,86):
+    for j in range(15,81):
         outstring+=''' &lt;option value="'''+str(j)+'''"&gt;'''+str(j)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
@@ -89,7 +89,7 @@ def geartest(self, K=None, N=None, inp2=None):
     &lt;select name="ng2"&gt;
     &lt;option value="24"&gt;24&lt;/option&gt;
     '''
-    for i in range(15,86):
+    for i in range(15,81):
         outstring+=''' &lt;option value="'''+str(i)+'''"&gt;'''+str(i)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
@@ -97,7 +97,7 @@ def geartest(self, K=None, N=None, inp2=None):
     齒數3:&lt;br /&gt;
     &lt;select name="ng3"&gt;
     '''
-    for a in range(15,86):
+    for a in range(15,81):
         outstring+=''' &lt;option value="'''+str(a)+'''"&gt;'''+str(a)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
@@ -106,7 +106,7 @@ def geartest(self, K=None, N=None, inp2=None):
     &lt;select name="ng4"&gt;
     &lt;option value="24"&gt;24&lt;/option&gt;
     '''
-    for b in range(15,86):
+    for b in range(15,81):
         outstring+=''' &lt;option value="'''+str(b)+'''"&gt;'''+str(b)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;    
@@ -312,7 +312,7 @@ def geartest3(self, K=None, N=None, inp2=None):
     齒數1:&lt;br /&gt;
     &lt;select name="ng1"&gt;
     '''
-    for j in range(15,86):
+    for j in range(15,81):
         outstring+=''' &lt;option value="'''+str(j)+'''"&gt;'''+str(j)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
@@ -320,7 +320,7 @@ def geartest3(self, K=None, N=None, inp2=None):
     &lt;select name="ng2"&gt;
     &lt;option value="24"&gt;24&lt;/option&gt;
     '''
-    for i in range(15,86):
+    for i in range(15,81):
         outstring+=''' &lt;option value="'''+str(i)+'''"&gt;'''+str(i)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
@@ -328,7 +328,7 @@ def geartest3(self, K=None, N=None, inp2=None):
     齒數3:&lt;br /&gt;
     &lt;select name="ng3"&gt;
     '''
-    for a in range(15,86):
+    for a in range(15,81):
         outstring+=''' &lt;option value="'''+str(a)+'''"&gt;'''+str(a)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
@@ -337,7 +337,7 @@ def geartest3(self, K=None, N=None, inp2=None):
     &lt;select name="ng4"&gt;
     &lt;option value="24"&gt;24&lt;/option&gt;
     '''
-    for b in range(15,86):
+    for b in range(15,81):
         outstring+=''' &lt;option value="'''+str(b)+'''"&gt;'''+str(b)+'''&lt;/option&gt;'''
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;    

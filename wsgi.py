@@ -125,7 +125,7 @@ class Hello(object):
         齒數1:<br />
         <select name="ng1">
         '''
-        for j in range(15,86):
+        for j in range(15,81):
             outstring+=''' <option value="'''+str(j)+'''">'''+str(j)+'''</option>'''
         outstring+='''
         </select><br />
@@ -133,7 +133,7 @@ class Hello(object):
         <select name="ng2">
         <option value="24">24</option>
         '''
-        for i in range(15,86):
+        for i in range(15,81):
             outstring+=''' <option value="'''+str(i)+'''">'''+str(i)+'''</option>'''
         outstring+='''
         </select><br />
@@ -141,7 +141,7 @@ class Hello(object):
         齒數3:<br />
         <select name="ng3">
         '''
-        for a in range(15,86):
+        for a in range(15,81):
             outstring+=''' <option value="'''+str(a)+'''">'''+str(a)+'''</option>'''
         outstring+='''
         </select><br />
@@ -150,7 +150,7 @@ class Hello(object):
         <select name="ng4">
         <option value="24">24</option>
         '''
-        for b in range(15,86):
+        for b in range(15,81):
             outstring+=''' <option value="'''+str(b)+'''">'''+str(b)+'''</option>'''
         outstring+='''
         </select><br />    
@@ -354,7 +354,7 @@ class Hello(object):
         齒數1:<br />
         <select name="ng1">
         '''
-        for j in range(15,86):
+        for j in range(15,81):
             outstring+=''' <option value="'''+str(j)+'''">'''+str(j)+'''</option>'''
         outstring+='''
         </select><br />
@@ -362,7 +362,7 @@ class Hello(object):
         <select name="ng2">
         <option value="24">24</option>
         '''
-        for i in range(15,86):
+        for i in range(15,81):
             outstring+=''' <option value="'''+str(i)+'''">'''+str(i)+'''</option>'''
         outstring+='''
         </select><br />
@@ -370,7 +370,7 @@ class Hello(object):
         齒數3:<br />
         <select name="ng3">
         '''
-        for a in range(15,86):
+        for a in range(15,81):
             outstring+=''' <option value="'''+str(a)+'''">'''+str(a)+'''</option>'''
         outstring+='''
         </select><br />
@@ -379,7 +379,7 @@ class Hello(object):
         <select name="ng4">
         <option value="24">24</option>
         '''
-        for b in range(15,86):
+        for b in range(15,81):
             outstring+=''' <option value="'''+str(b)+'''">'''+str(b)+'''</option>'''
         outstring+='''
         </select><br />    
