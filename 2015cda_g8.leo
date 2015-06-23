@@ -23,13 +23,13 @@
 <v t="2014fall.20141212095015.2004"><vh>__init__</vh></v>
 <v t="2014fall.20141212095015.1779"><vh>hello</vh></v>
 <v t="2015.20150512115116.1"><vh>index</vh></v>
-<v t=".20150622185123.1"><vh>geartest</vh>
+<v t=".20150622185123.1" a="E"><vh>geartest</vh>
 <v t=".20150622185123.2"><vh>geartest2</vh></v>
 </v>
 <v t=".20150623093705.1" a="E"><vh>geartest3</vh>
 <v t=".20150623093705.2"><vh>geartest4</vh></v>
 </v>
-<v t="2014fall.20141215194146.1791"><vh>index2</vh>
+<v t="2014fall.20141215194146.1791" a="E"><vh>index2</vh>
 <v t="2015.20150420212038.1941"><vh>mygeartest2</vh></v>
 <v t="2014fall.20141215194146.1793"><vh>doAct</vh></v>
 </v>
@@ -1285,12 +1285,15 @@ th2 = -pi/2-pi/n_g2
 # 必須乘上兩齒輪齒數的比例, 若齒輪2 大, 則齒輪3 會轉動較快
 # 但是第2齒輪為了與第1齒輪囓合, 已經距離定位線, 多轉了 180 度, 再加上第2齒輪的一齒角度, 因為要帶動第3齒輪定位, 
 # 這個修正角度必須要再配合第2齒與第3齒的轉速比加以轉換成第3齒輪的轉角, 因此乘上 n_g2/n_g3
-th3 = -pi/2-pi/n_g3+(pi+pi/n_g2)*n_g2/n_g3
+th3 = -pi/2-((pi+(pi+pi/n_g2)*n_g2)/n_g3)
 
-th4 = -pi/2-pi/n_g4+(pi+pi/n_g3)*n_g3/n_g4-(pi+pi/n_g2)*n_g2/n_g4
-th5 = -pi/2-pi/n_g5+(pi+pi/n_g4)*n_g4/n_g5-(pi+pi/n_g3)*n_g3/n_g5+(pi+pi/n_g2)*n_g2/n_g5
-th6 = -pi/2-pi/n_g6+(pi+pi/n_g5)*n_g5/n_g6-(pi+pi/n_g4)*n_g4/n_g6+(pi+pi/n_g3)*n_g3/n_g6-(pi+pi/n_g2)*n_g2/n_g6
-th7 = -pi/2-pi/n_g7+(pi+pi/n_g6)*n_g6/n_g7-(pi+pi/n_g5)*n_g5/n_g7+(pi+pi/n_g4)*n_g4/n_g7-(pi+pi/n_g3)*n_g3/n_g7+(pi+pi/n_g2)*n_g2/n_g7
+th4 = -pi/2-((pi+(pi+pi/n_g3)*n_g3-(pi+pi/n_g2)*n_g2)/n_g4)
+
+th5 = -pi/2-((pi+(pi+pi/n_g4)*n_g4-(pi+pi/n_g3)*n_g3+(pi+pi/n_g2)*n_g2)/n_g5)
+
+th6 = -pi/2-((pi+(pi+pi/n_g5)*n_g5-(pi+pi/n_g4)*n_g4+(pi+pi/n_g3)*n_g3-(pi+pi/n_g2)*n_g2)/n_g6)
+
+th7 = -pi/2-((pi+(pi+pi/n_g6)*n_g6-(pi+pi/n_g5)*n_g5+(pi+pi/n_g4)*n_g4-(pi+pi/n_g3)*n_g3+(pi+pi/n_g2)*n_g2)/n_g7)
 
 
 

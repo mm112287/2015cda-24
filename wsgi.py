@@ -848,12 +848,15 @@ gear(400,400,300,41,"blue")
     # 必須乘上兩齒輪齒數的比例, 若齒輪2 大, 則齒輪3 會轉動較快
     # 但是第2齒輪為了與第1齒輪囓合, 已經距離定位線, 多轉了 180 度, 再加上第2齒輪的一齒角度, 因為要帶動第3齒輪定位, 
     # 這個修正角度必須要再配合第2齒與第3齒的轉速比加以轉換成第3齒輪的轉角, 因此乘上 n_g2/n_g3
-    th3 = -pi/2-pi/n_g3+(pi+pi/n_g2)*n_g2/n_g3
+    th3 = -pi/2-((pi+(pi+pi/n_g2)*n_g2)/n_g3)
 
-    th4 = -pi/2-pi/n_g4+(pi+pi/n_g3)*n_g3/n_g4-(pi+pi/n_g2)*n_g2/n_g4
-    th5 = -pi/2-pi/n_g5+(pi+pi/n_g4)*n_g4/n_g5-(pi+pi/n_g3)*n_g3/n_g5+(pi+pi/n_g2)*n_g2/n_g5
-    th6 = -pi/2-pi/n_g6+(pi+pi/n_g5)*n_g5/n_g6-(pi+pi/n_g4)*n_g4/n_g6+(pi+pi/n_g3)*n_g3/n_g6-(pi+pi/n_g2)*n_g2/n_g6
-    th7 = -pi/2-pi/n_g7+(pi+pi/n_g6)*n_g6/n_g7-(pi+pi/n_g5)*n_g5/n_g7+(pi+pi/n_g4)*n_g4/n_g7-(pi+pi/n_g3)*n_g3/n_g7+(pi+pi/n_g2)*n_g2/n_g7
+    th4 = -pi/2-((pi+(pi+pi/n_g3)*n_g3-(pi+pi/n_g2)*n_g2)/n_g4)
+
+    th5 = -pi/2-((pi+(pi+pi/n_g4)*n_g4-(pi+pi/n_g3)*n_g3+(pi+pi/n_g2)*n_g2)/n_g5)
+
+    th6 = -pi/2-((pi+(pi+pi/n_g5)*n_g5-(pi+pi/n_g4)*n_g4+(pi+pi/n_g3)*n_g3-(pi+pi/n_g2)*n_g2)/n_g6)
+
+    th7 = -pi/2-((pi+(pi+pi/n_g6)*n_g6-(pi+pi/n_g5)*n_g5+(pi+pi/n_g4)*n_g4-(pi+pi/n_g3)*n_g3+(pi+pi/n_g2)*n_g2)/n_g7)
 
 
 
