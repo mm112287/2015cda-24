@@ -23,10 +23,13 @@
 <v t="2014fall.20141212095015.2004"><vh>__init__</vh></v>
 <v t="2014fall.20141212095015.1779"><vh>hello</vh></v>
 <v t="2015.20150512115116.1"><vh>index</vh></v>
-<v t=".20150622185123.1" a="E"><vh>geartest</vh>
+<v t=".20150622185123.1"><vh>geartest</vh>
 <v t=".20150622185123.2"><vh>geartest2</vh></v>
 </v>
-<v t="2014fall.20141215194146.1791" a="E"><vh>index2</vh>
+<v t=".20150623093705.1" a="E"><vh>geartest3</vh>
+<v t=".20150623093705.2"><vh>geartest4</vh></v>
+</v>
+<v t="2014fall.20141215194146.1791"><vh>index2</vh>
 <v t="2015.20150420212038.1941"><vh>mygeartest2</vh></v>
 <v t="2014fall.20141215194146.1793"><vh>doAct</vh></v>
 </v>
@@ -37,7 +40,7 @@
 <v t="office.20150407074720.1" a="E"
 expanded="office.20150407074720.3,"><vh>@file gear.py</vh></v>
 <v t="2014fall.20141212095015.1780"><vh>@edit setup.py</vh></v>
-<v t=".20150531152010.1" a="E"><vh>@auto legoman.py</vh></v>
+<v t=".20150531152010.1"><vh>@auto legoman.py</vh></v>
 </v>
 <v t="2015.20150330144929.1715" a="E"><vh>以下為專案報告相關檔案</vh>
 <v t="2015.20150330144929.1716"><vh>@edit SUMMARY.md</vh></v>
@@ -49,6 +52,7 @@ expanded="office.20150407074720.3,"><vh>@file gear.py</vh></v>
 <tnodes>
 <t tx=".20150622185123.1">
 #@-others
+#這裡是個人版的空間，請協同者到geartest3下修改
 @cherrypy.expose
 def geartest(self, K=None, N=None, inp2=None):
     # 將標準答案存入 answer session 對應區
@@ -83,6 +87,7 @@ def geartest(self, K=None, N=None, inp2=None):
     &lt;/select&gt;&lt;br /&gt;
     齒數2:&lt;br /&gt;
     &lt;select name="ng2"&gt;
+    &lt;option value="24"&gt;24&lt;/option&gt;
     '''
     for i in range(15,86):
         outstring+=''' &lt;option value="'''+str(i)+'''"&gt;'''+str(i)+'''&lt;/option&gt;'''
@@ -97,8 +102,9 @@ def geartest(self, K=None, N=None, inp2=None):
     outstring+='''
     &lt;/select&gt;&lt;br /&gt;
 
-    齒數3:&lt;br /&gt;
+    齒數4:&lt;br /&gt;
     &lt;select name="ng4"&gt;
+    &lt;option value="24"&gt;24&lt;/option&gt;
     '''
     for b in range(15,86):
         outstring+=''' &lt;option value="'''+str(b)+'''"&gt;'''+str(b)+'''&lt;/option&gt;'''
@@ -266,6 +272,211 @@ ctx.rotate(th4)
 ctx.translate(-x_g4,-y_g4)
 spur.Spur(ctx).Gear(x_g4,y_g4,rp_g4,n_g4, pa, "black")
 ctx.restore()
+
+&lt;/script&gt;
+&lt;canvas id="plotarea" width="2800" height="2800"&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+'''
+
+    return outString
+
+</t>
+<t tx=".20150623093705.1">
+#@-others
+@cherrypy.expose
+def geartest3(self, K=None, N=None, inp2=None):
+    # 將標準答案存入 answer session 對應區
+    theanswer = random.randint(1, 100)
+    thecount = 0
+    # 將答案與計算次數變數存進 session 對應變數
+    cherrypy.session['answer'] = theanswer
+    cherrypy.session['count'] = thecount
+    # 印出讓使用者輸入的超文件表單
+    outstring = '''
+&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
+&lt;!-- 載入 brython.js --&gt;
+&lt;script type="text/javascript" src="/static/Brython3.1.0-20150301-090019/brython.js"&gt;&lt;/script&gt;
+&lt;script src="/static/Cango2D.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="/static/gearUtils-04.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;!-- 啟動 brython() --&gt;
+&lt;body onload="brython()"&gt;
+    
+&lt;form method=\"post\" action=\"geartest2\"&gt;
+    &lt;fieldset&gt;
+    &lt;legend&gt;協同考試上下齒輪嚙合齒輪參數表單值:&lt;/legend&gt;
+    齒數1:&lt;br /&gt;
+    &lt;select name="ng1"&gt;
+    '''
+    for j in range(15,86):
+        outstring+=''' &lt;option value="'''+str(j)+'''"&gt;'''+str(j)+'''&lt;/option&gt;'''
+    outstring+='''
+    &lt;/select&gt;&lt;br /&gt;
+    齒數2:&lt;br /&gt;
+    &lt;select name="ng2"&gt;
+    &lt;option value="24"&gt;24&lt;/option&gt;
+    '''
+    for i in range(15,86):
+        outstring+=''' &lt;option value="'''+str(i)+'''"&gt;'''+str(i)+'''&lt;/option&gt;'''
+    outstring+='''
+    &lt;/select&gt;&lt;br /&gt;
+
+    齒數3:&lt;br /&gt;
+    &lt;select name="ng3"&gt;
+    '''
+    for a in range(15,86):
+        outstring+=''' &lt;option value="'''+str(a)+'''"&gt;'''+str(a)+'''&lt;/option&gt;'''
+    outstring+='''
+    &lt;/select&gt;&lt;br /&gt;
+
+    齒數4:&lt;br /&gt;
+    &lt;select name="ng4"&gt;
+    &lt;option value="24"&gt;24&lt;/option&gt;
+    '''
+    for b in range(15,86):
+        outstring+=''' &lt;option value="'''+str(b)+'''"&gt;'''+str(b)+'''&lt;/option&gt;'''
+    outstring+='''
+    &lt;/select&gt;&lt;br /&gt;    
+    模數:&lt;br /&gt;
+    &lt;input type=\"text\" name=\"m\"&gt;&lt;br /&gt;
+    壓力角(&gt;33時會有錯誤):&lt;br /&gt;
+    &lt;input type=\"text\" name=\"inp2\"&gt;&lt;br /&gt;
+    &lt;input type=\"submit\" value=\"確定\"&gt;
+    &lt;input type=\"reset\" value=\"重填\"&gt;
+&lt;/form&gt;
+
+&lt;hr&gt;
+&lt;!-- 以下在網頁內嵌 Brython 程式 --&gt;
+&lt;script type="text/python"&gt;
+from browser import document, alert
+
+def echo(ev):
+    alert(document["zone"].value)
+
+# 將文件中名稱為 mybutton 的物件, 透過 click 事件與 echo 函式 bind 在一起
+document['mybutton'].bind('click',echo)
+&lt;/script&gt;
+
+\\-4.&lt;/body&gt;
+\\-4.&lt;/html&gt;
+'''
+
+    return outstring
+</t>
+<t tx=".20150623093705.2">@cherrypy.expose
+# N 為齒數, M 為模數, P 為壓力角
+def geartest4(self, m=None, ng1=None, ng2=None, ng3=None, ng4=None, inp2=None):
+    outString = ""
+    outString +="藍色，24號丞宗所繪製，齒數1:"+ng1
+    outString += "&lt;br /&gt;"
+    outString +="齒數2:"+ng2
+    outString += "&lt;br /&gt;"
+    outString +="齒數3:"+ng3
+    outString += "&lt;br /&gt;"
+    outString +="齒數4:"+ng4
+    outString += "&lt;br /&gt;"
+    outString +="模數:"+m
+    outString += "&lt;br /&gt;"
+    outString +="壓力角:"+inp2
+    outString += "&lt;br /&gt;"
+    outString += self.menuLink()
+    outString += '''
+&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
+&lt;!-- 載入 brython.js --&gt;
+&lt;script type="text/javascript" src="/static/Brython3.1.1-20150328-091302/brython.js"&gt;&lt;/script&gt;
+&lt;script src="/static/Cango2D.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="/static/gearUtils-04.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;!-- 啟動 brython() --&gt;
+&lt;body onload="brython()"&gt;
+
+&lt;!-- 以下為 canvas 畫圖程式 --&gt;
+&lt;script type="text/python"&gt;
+# 從 browser 導入 document
+from browser import document
+from math import *
+# 請注意, 這裡導入位於 Lib/site-packages 目錄下的 spur.py 檔案
+import spur
+
+# 準備在 id="plotarea" 的 canvas 中繪圖
+canvas = document["plotarea"]
+ctx = canvas.getContext("2d")
+# 以下利用 spur.py 程式進行繪圖, 接下來的協同設計運算必須要配合使用者的需求進行設計運算與繪圖
+# 其中並將工作分配給其他組員建立類似 spur.py 的相關零件繪圖模組
+# midx, midy 為齒輪圓心座標, rp 為節圓半徑, n 為齒數, pa 為壓力角, color 為線的顏色
+# Gear(midx, midy, rp, n=20, pa=20, color="black"):
+# 模數決定齒的尺寸大小, 囓合齒輪組必須有相同的模數與壓力角
+# 壓力角 pa 單位為角度
+pa = '''+str(inp2)+'''
+
+# m 為模數
+m = '''+str(m)+'''
+
+# 齒輪齒數
+n_g1 = '''+str(ng1)+'''
+n_g2 = '''+str(ng2)+'''
+
+
+
+# 計算兩齒輪的節圓半徑
+rp_g1 = m*n_g1/2
+rp_g2 = m*n_g2/2
+
+
+# 繪圖齒輪的圓心座標,假設排列成水平, 表示各齒輪圓心 y 座標相同
+x_g1 = 400
+y_g1 = 400
+
+x_g2 = x_g1 
+y_g2 = y_g1+ rp_g1 + rp_g2
+
+x_g3 = x_g2 + rp_g2+ rp_g3
+y_g3 = y_g2
+
+
+
+#齒輪嚙合的旋轉角
+# 將第1齒輪順時鐘轉 180度
+th1 = pi
+
+# 將第2齒輪再多轉一齒, 以便與第1齒輪進行囓合
+th2 = -pi/n_g2
+th3 = -pi/2-pi/n_g3+(pi/2+pi/n_g2)*n_g2/n_g3
+th4 = -pi/n_g4+(-pi/2+pi/n_g3)*n_g3/n_g4-(pi/2+pi/n_g2)*n_g2/n_g4
+
+
+
+# 使用 ctx.save() 與 ctx.restore() 以確保各齒輪以相對座標進行旋轉繪圖
+ctx.save()
+# translate to the origin of second gear
+ctx.translate(x_g1,y_g1)
+ctx.rotate(th1)
+# put it back
+ctx.translate(-x_g1,-y_g1)
+spur.Spur(ctx).Gear(x_g1,y_g1,rp_g1,n_g1, pa, "blue")
+ctx.restore()
+ctx.font = "10px Verdana";
+ctx.fillText("組員:24號袁丞宗所繪製",x_g1-60, y_g1-10);
+
+#2
+ctx.save()
+# translate to the origin of second gear
+ctx.translate(x_g2,y_g2)
+# rotate to engage
+ctx.rotate(th2)
+# put it back
+ctx.translate(-x_g2,-y_g2)
+spur.Spur(ctx).Gear(x_g2,y_g2,rp_g2,n_g2, pa, "blue")
+ctx.restore()
+
+
 
 &lt;/script&gt;
 &lt;canvas id="plotarea" width="2800" height="2800"&gt;&lt;/canvas&gt;
@@ -1190,7 +1401,8 @@ def index(self, K=None, N=None, inp2=None):
     國立虎尾科技大學，機械設計系二年甲板，協同產品設計，第八組24號的個人網頁&lt;br/&gt;
 &lt;a href="legoman"&gt;樂高機器人組立&lt;/a&gt;&lt;br/&gt;
 &lt;a href="index2"&gt;協同齒輪&lt;/a&gt;&lt;br/&gt;
-&lt;a href="geartest"&gt;協同第二次上機期末考&lt;/a&gt;&lt;br/&gt;
+&lt;a href="geartest"&gt;協同第二次上機期末考個人版&lt;/a&gt;&lt;br/&gt;
+&lt;a href="geartest2"&gt;協同第二次上機期末考協同版&lt;/a&gt;&lt;br/&gt;
 &lt;a href="CMS"&gt;CMSimply&lt;/a&gt;&lt;br/&gt;
 
     '''

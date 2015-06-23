@@ -87,7 +87,8 @@ class Hello(object):
         國立虎尾科技大學，機械設計系二年甲板，協同產品設計，第八組24號的個人網頁<br/>
     <a href="legoman">樂高機器人組立</a><br/>
     <a href="index2">協同齒輪</a><br/>
-    <a href="geartest">協同第二次上機期末考</a><br/>
+    <a href="geartest">協同第二次上機期末考個人版</a><br/>
+    <a href="geartest2">協同第二次上機期末考協同版</a><br/>
     <a href="CMS">CMSimply</a><br/>
 
         '''
@@ -95,6 +96,7 @@ class Hello(object):
 
 
     #@-others
+    #這裡是個人版的空間，請協同者到geartest3下修改
     @cherrypy.expose
     def geartest(self, K=None, N=None, inp2=None):
         # 將標準答案存入 answer session 對應區
@@ -129,6 +131,7 @@ class Hello(object):
         </select><br />
         齒數2:<br />
         <select name="ng2">
+        <option value="24">24</option>
         '''
         for i in range(15,86):
             outstring+=''' <option value="'''+str(i)+'''">'''+str(i)+'''</option>'''
@@ -143,8 +146,9 @@ class Hello(object):
         outstring+='''
         </select><br />
 
-        齒數3:<br />
+        齒數4:<br />
         <select name="ng4">
+        <option value="24">24</option>
         '''
         for b in range(15,86):
             outstring+=''' <option value="'''+str(b)+'''">'''+str(b)+'''</option>'''
@@ -311,6 +315,209 @@ class Hello(object):
     ctx.translate(-x_g4,-y_g4)
     spur.Spur(ctx).Gear(x_g4,y_g4,rp_g4,n_g4, pa, "black")
     ctx.restore()
+
+    </script>
+    <canvas id="plotarea" width="2800" height="2800"></canvas>
+    </body>
+    </html>
+    '''
+
+        return outString
+
+
+    #@-others
+    @cherrypy.expose
+    def geartest3(self, K=None, N=None, inp2=None):
+        # 將標準答案存入 answer session 對應區
+        theanswer = random.randint(1, 100)
+        thecount = 0
+        # 將答案與計算次數變數存進 session 對應變數
+        cherrypy.session['answer'] = theanswer
+        cherrypy.session['count'] = thecount
+        # 印出讓使用者輸入的超文件表單
+        outstring = '''
+    <!DOCTYPE html> 
+    <html>
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <!-- 載入 brython.js -->
+    <script type="text/javascript" src="/static/Brython3.1.0-20150301-090019/brython.js"></script>
+    <script src="/static/Cango2D.js" type="text/javascript"></script>
+    <script src="/static/gearUtils-04.js" type="text/javascript"></script>
+    </head>
+    <!-- 啟動 brython() -->
+    <body onload="brython()">
+        
+    <form method=\"post\" action=\"geartest2\">
+        <fieldset>
+        <legend>協同考試上下齒輪嚙合齒輪參數表單值:</legend>
+        齒數1:<br />
+        <select name="ng1">
+        '''
+        for j in range(15,86):
+            outstring+=''' <option value="'''+str(j)+'''">'''+str(j)+'''</option>'''
+        outstring+='''
+        </select><br />
+        齒數2:<br />
+        <select name="ng2">
+        <option value="24">24</option>
+        '''
+        for i in range(15,86):
+            outstring+=''' <option value="'''+str(i)+'''">'''+str(i)+'''</option>'''
+        outstring+='''
+        </select><br />
+
+        齒數3:<br />
+        <select name="ng3">
+        '''
+        for a in range(15,86):
+            outstring+=''' <option value="'''+str(a)+'''">'''+str(a)+'''</option>'''
+        outstring+='''
+        </select><br />
+
+        齒數4:<br />
+        <select name="ng4">
+        <option value="24">24</option>
+        '''
+        for b in range(15,86):
+            outstring+=''' <option value="'''+str(b)+'''">'''+str(b)+'''</option>'''
+        outstring+='''
+        </select><br />    
+        模數:<br />
+        <input type=\"text\" name=\"m\"><br />
+        壓力角(>33時會有錯誤):<br />
+        <input type=\"text\" name=\"inp2\"><br />
+        <input type=\"submit\" value=\"確定\">
+        <input type=\"reset\" value=\"重填\">
+    </form>
+
+    <hr>
+    <!-- 以下在網頁內嵌 Brython 程式 -->
+    <script type="text/python">
+    from browser import document, alert
+
+    def echo(ev):
+        alert(document["zone"].value)
+
+    # 將文件中名稱為 mybutton 的物件, 透過 click 事件與 echo 函式 bind 在一起
+    document['mybutton'].bind('click',echo)
+    </script>
+
+</body>
+</html>
+    '''
+
+        return outstring
+    @cherrypy.expose
+    # N 為齒數, M 為模數, P 為壓力角
+    def geartest4(self, m=None, ng1=None, ng2=None, ng3=None, ng4=None, inp2=None):
+        outString = ""
+        outString +="藍色，24號丞宗所繪製，齒數1:"+ng1
+        outString += "<br />"
+        outString +="齒數2:"+ng2
+        outString += "<br />"
+        outString +="齒數3:"+ng3
+        outString += "<br />"
+        outString +="齒數4:"+ng4
+        outString += "<br />"
+        outString +="模數:"+m
+        outString += "<br />"
+        outString +="壓力角:"+inp2
+        outString += "<br />"
+        outString += self.menuLink()
+        outString += '''
+    <!DOCTYPE html> 
+    <html>
+    <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <!-- 載入 brython.js -->
+    <script type="text/javascript" src="/static/Brython3.1.1-20150328-091302/brython.js"></script>
+    <script src="/static/Cango2D.js" type="text/javascript"></script>
+    <script src="/static/gearUtils-04.js" type="text/javascript"></script>
+    </head>
+    <!-- 啟動 brython() -->
+    <body onload="brython()">
+
+    <!-- 以下為 canvas 畫圖程式 -->
+    <script type="text/python">
+    # 從 browser 導入 document
+    from browser import document
+    from math import *
+    # 請注意, 這裡導入位於 Lib/site-packages 目錄下的 spur.py 檔案
+    import spur
+
+    # 準備在 id="plotarea" 的 canvas 中繪圖
+    canvas = document["plotarea"]
+    ctx = canvas.getContext("2d")
+    # 以下利用 spur.py 程式進行繪圖, 接下來的協同設計運算必須要配合使用者的需求進行設計運算與繪圖
+    # 其中並將工作分配給其他組員建立類似 spur.py 的相關零件繪圖模組
+    # midx, midy 為齒輪圓心座標, rp 為節圓半徑, n 為齒數, pa 為壓力角, color 為線的顏色
+    # Gear(midx, midy, rp, n=20, pa=20, color="black"):
+    # 模數決定齒的尺寸大小, 囓合齒輪組必須有相同的模數與壓力角
+    # 壓力角 pa 單位為角度
+    pa = '''+str(inp2)+'''
+
+    # m 為模數
+    m = '''+str(m)+'''
+
+    # 齒輪齒數
+    n_g1 = '''+str(ng1)+'''
+    n_g2 = '''+str(ng2)+'''
+
+
+
+    # 計算兩齒輪的節圓半徑
+    rp_g1 = m*n_g1/2
+    rp_g2 = m*n_g2/2
+
+
+    # 繪圖齒輪的圓心座標,假設排列成水平, 表示各齒輪圓心 y 座標相同
+    x_g1 = 400
+    y_g1 = 400
+
+    x_g2 = x_g1 
+    y_g2 = y_g1+ rp_g1 + rp_g2
+
+    x_g3 = x_g2 + rp_g2+ rp_g3
+    y_g3 = y_g2
+
+
+
+    #齒輪嚙合的旋轉角
+    # 將第1齒輪順時鐘轉 180度
+    th1 = pi
+
+    # 將第2齒輪再多轉一齒, 以便與第1齒輪進行囓合
+    th2 = -pi/n_g2
+    th3 = -pi/2-pi/n_g3+(pi/2+pi/n_g2)*n_g2/n_g3
+    th4 = -pi/n_g4+(-pi/2+pi/n_g3)*n_g3/n_g4-(pi/2+pi/n_g2)*n_g2/n_g4
+
+
+
+    # 使用 ctx.save() 與 ctx.restore() 以確保各齒輪以相對座標進行旋轉繪圖
+    ctx.save()
+    # translate to the origin of second gear
+    ctx.translate(x_g1,y_g1)
+    ctx.rotate(th1)
+    # put it back
+    ctx.translate(-x_g1,-y_g1)
+    spur.Spur(ctx).Gear(x_g1,y_g1,rp_g1,n_g1, pa, "blue")
+    ctx.restore()
+    ctx.font = "10px Verdana";
+    ctx.fillText("組員:24號袁丞宗所繪製",x_g1-60, y_g1-10);
+
+    #2
+    ctx.save()
+    # translate to the origin of second gear
+    ctx.translate(x_g2,y_g2)
+    # rotate to engage
+    ctx.rotate(th2)
+    # put it back
+    ctx.translate(-x_g2,-y_g2)
+    spur.Spur(ctx).Gear(x_g2,y_g2,rp_g2,n_g2, pa, "blue")
+    ctx.restore()
+
+
 
     </script>
     <canvas id="plotarea" width="2800" height="2800"></canvas>
