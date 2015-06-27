@@ -530,7 +530,7 @@ class Hello(object):
     spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2,rp_g3,n_g3, pa, "#FF44AA")
     ctx.restore()
     ctx.font = "10px Verdana";
-    ctx.fillText("組員:51號簡正斌繪製",400+rp_g2+rp_g3-60, 400+ rp_g1 + rp_g2+20);
+    ctx.fillText("組員:51號簡正斌製作",400+rp_g2+rp_g3-60, 400+ rp_g1 + rp_g2+20);
 
     # 第4齒輪囓合
     ctx.save()
@@ -540,7 +540,7 @@ class Hello(object):
     ctx.rotate( th4)
     # put it back
     ctx.translate(-(400+rp_g2+rp_g3),-(400+ rp_g1 + rp_g2+rp_g3+rp_g4))
-    spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2+rp_g3+rp_g4,rp_g4,n_g4, pa, "pink")
+    spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2+rp_g3+rp_g4,rp_g4,n_g4, pa, "#FF44AA")
     ctx.restore()
 
 
