@@ -351,6 +351,7 @@ class Hello(object):
     <form method=\"post\" action=\"geartest4\">
         <fieldset>
         <legend>協同考試上下齒輪嚙合齒輪參數表單值:</legend>
+        袁丞宗1、2顆齒輪<br/>
         齒數1:<br />
         <select name="ng1">
         '''
@@ -366,7 +367,7 @@ class Hello(object):
             outstring+=''' <option value="'''+str(i)+'''">'''+str(i)+'''</option>'''
         outstring+='''
         </select><br />
-
+        簡正斌3、4顆齒輪<br/>
         齒數3:<br />
         <select name="ng3">
         '''
@@ -412,13 +413,13 @@ class Hello(object):
     # N 為齒數, M 為模數, P 為壓力角
     def geartest4(self, m=None, ng1=None, ng2=None, ng3=None, ng4=None, inp2=None):
         outString = ""
-        outString +="藍色，24號丞宗所繪製，齒數1:"+ng1
+        outString +="<font color='blue'>藍色，24號丞宗所繪製，齒數1:</font>"+ng1
         outString += "<br />"
-        outString +="齒數2:"+ng2
+        outString +="<font color='blue'>齒數2:</font>"+ng2
         outString += "<br />"
-        outString +="齒數3:"+ng3
+        outString +="<font color='#FF44AA'>粉紅色，51簡正斌，齒輪3:</font>"+ng3
         outString += "<br />"
-        outString +="齒數4:"+ng4
+        outString +="<font color='#FF44AA'>粉紅色，齒數4:</font>"+ng4
         outString += "<br />"
         outString +="模數:"+m
         outString += "<br />"
@@ -463,13 +464,15 @@ class Hello(object):
     # 齒輪齒數
     n_g1 = '''+str(ng1)+'''
     n_g2 = '''+str(ng2)+'''
-
+    n_g3 = '''+str(ng2)+'''
+    n_g4 = '''+str(ng3)+'''
 
 
     # 計算兩齒輪的節圓半徑
     rp_g1 = m*n_g1/2
     rp_g2 = m*n_g2/2
-
+    rp_g3 = m*n_g3/2
+    rp_g4 = m*n_g4/2
 
     # 繪圖齒輪的圓心座標,假設排列成水平, 表示各齒輪圓心 y 座標相同
     x_g1 = 400
@@ -478,8 +481,7 @@ class Hello(object):
     x_g2 = x_g1 
     y_g2 = y_g1+ rp_g1 + rp_g2
 
-    x_g3 = x_g2 + rp_g2+ rp_g3
-    y_g3 = y_g2
+
 
 
 
@@ -489,6 +491,7 @@ class Hello(object):
 
     # 將第2齒輪再多轉一齒, 以便與第1齒輪進行囓合
     th2 = -pi/n_g2
+    # 第3齒輪囓合
     th3 = -pi/2-pi/n_g3+(pi/2+pi/n_g2)*n_g2/n_g3
     th4 = -pi/n_g4+(-pi/2+pi/n_g3)*n_g3/n_g4-(pi/2+pi/n_g2)*n_g2/n_g4
 
@@ -516,7 +519,29 @@ class Hello(object):
     ctx.translate(-x_g2,-y_g2)
     spur.Spur(ctx).Gear(x_g2,y_g2,rp_g2,n_g2, pa, "blue")
     ctx.restore()
+    # 第3齒輪囓合
+    ctx.save()
+    # translate to the origin of second gear
+    ctx.translate(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2)
+    # rotate to engage
+    ctx.rotate( th3)
+    # put it back
+    ctx.translate(-(400+rp_g2+rp_g3),-(400+ rp_g1 + rp_g2))
+    spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2,rp_g3,n_g3, pa, "#FF44AA")
+    ctx.restore()
+    ctx.font = "10px Verdana";
+    ctx.fillText("組員:51號簡正斌繪製",400+rp_g2+rp_g3-60, 400+ rp_g1 + rp_g2+20);
 
+    # 第4齒輪囓合
+    ctx.save()
+    # translate to the origin of second gear
+    ctx.translate(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2+rp_g3+rp_g4)
+    # rotate to engage
+    ctx.rotate( th4)
+    # put it back
+    ctx.translate(-(400+rp_g2+rp_g3),-(400+ rp_g1 + rp_g2+rp_g3+rp_g4))
+    spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2+rp_g3+rp_g4,rp_g4,n_g4, pa, "pink")
+    ctx.restore()
 
 
     </script>
