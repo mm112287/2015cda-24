@@ -464,8 +464,8 @@ class Hello(object):
     # 齒輪齒數
     n_g1 = '''+str(ng1)+'''
     n_g2 = '''+str(ng2)+'''
-    n_g3 = '''+str(ng2)+'''
-    n_g4 = '''+str(ng3)+'''
+    n_g3 = '''+str(ng3)+'''
+    n_g4 = '''+str(ng4)+'''
 
 
     # 計算兩齒輪的節圓半徑
