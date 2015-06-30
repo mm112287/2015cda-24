@@ -400,7 +400,7 @@ class Hello(object):
         for d in range(15,81):
             outstring+=''' <option value="'''+str(d)+'''">'''+str(d)+'''</option>'''
         outstring+='''
-        </select><br />
+        </select><br />    
         模數:<br />
         <input type=\"text\" name=\"m\"><br />
         壓力角(>33時會有錯誤):<br />
@@ -438,14 +438,14 @@ class Hello(object):
         outString += "<br />"
         outString +="<font color='#FF44AA'>粉紅色，齒數4:</font>"+ng4
         outString += "<br />"
-        outString +="<font color='#FF8800'>橘色，50號俊宇所繪製"
+        outString +="<font color='#FF8800'>藍色，50號俊宇所繪製"
         outString +="<font color='#FF8800'>齒數5:</font>"+ng5
         outString += "<br />"
         outString +="<font color='#FF8800'>齒數6:</font>"+ng6
         outString += "<br />"
         outString +="<font color='#000000'>模數:"+m
         outString += "<br />"
-        outString +="壓力角:"+inp2
+        outString +="<font color='#000000'>壓力角:"+inp2
         outString += "<br />"
         outString += self.menuLink()
         outString += '''
@@ -507,11 +507,11 @@ class Hello(object):
     x_g2 = x_g1 
     y_g2 = y_g1+ rp_g1 + rp_g2
 
-    x_g5 = 400+rp_g2+rp_g3+rp_g4+rp_g5
-    y_g5 = 400+rp_g1+rp_g2+rp_g3+rp_g4
+    x_g5 = 400+rp_g2+rp_g3 +rp_g4 +rp_g5
+    y_g5 = 400+ rp_g1 + rp_g2+rp_g3+rp_g4
 
     x_g6 = x_g5
-    y_g6 = y_g5+rp_g5+rp_g6
+    y_g6 = y_g5 +rp_g5 +rp_g6
 
 
     #齒輪嚙合的旋轉角
@@ -524,8 +524,8 @@ class Hello(object):
     th3 = -pi/2-pi/n_g3+(pi/2+pi/n_g2)*n_g2/n_g3
     th4 = -pi/n_g4+(-pi/2+pi/n_g3)*n_g3/n_g4-(pi/2+pi/n_g2)*n_g2/n_g4
 
-    th5 = -pi/2 +pi/n_g5 +(pi/2-th4)*n_g4/n_g5
-    th6 = -pi/n_g6 +(pi-th5)*n_g5/n_g6
+    th5 = -pi/2 +pi/n_g5 +(pi/2+th4)*ng_4/ng_5
+    th6 = 0
 
 
     # 使用 ctx.save() 與 ctx.restore() 以確保各齒輪以相對座標進行旋轉繪圖
@@ -555,7 +555,7 @@ class Hello(object):
     # translate to the origin of second gear
     ctx.translate(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2)
     # rotate to engage
-    ctx.rotate( th3)
+    ctx.rotate(th3)
     # put it back
     ctx.translate(-(400+rp_g2+rp_g3),-(400+ rp_g1 + rp_g2))
     spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2,rp_g3,n_g3, pa, "#FF44AA")
@@ -568,35 +568,13 @@ class Hello(object):
     # translate to the origin of second gear
     ctx.translate(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2+rp_g3+rp_g4)
     # rotate to engage
-    ctx.rotate( th4)
+    ctx.rotate(th4)
     # put it back
     ctx.translate(-(400+rp_g2+rp_g3),-(400+ rp_g1 + rp_g2+rp_g3+rp_g4))
     spur.Spur(ctx).Gear(400+rp_g2+rp_g3,400+ rp_g1 + rp_g2+rp_g3+rp_g4,rp_g4,n_g4, pa, "#FF44AA")
     ctx.restore()
 
-    # 第5齒輪囓合
-    ctx.save()
-    # translate to the origin of second gear
-    ctx.translate(x_g5,y_g5)
-    # rotate to engage
-    ctx.rotate( th5)
-    # put it back
-    ctx.translate(-(x_g5),-(y_g5))
-    spur.Spur(ctx).Gear(x_g5,y_g5,rp_g5,n_g5, pa, "#FF8800")
-    ctx.restore()
-    ctx.font = "10px Verdana";
-    ctx.fillText("組員:50號謝俊宇製作",x_g5-50,y_g5-rp_g5-m-3);
-
-    # 第6齒輪囓合
-    ctx.save()
-    # translate to the origin of second gear
-    ctx.translate(x_g6,y_g6)
-    # rotate to engage
-    ctx.rotate( th6)
-    # put it back
-    ctx.translate(-(x_g6),-(y_g6))
-    spur.Spur(ctx).Gear(x_g6,y_g6,rp_g6,n_g6, pa, "#FF8800")
-    ctx.restore()
+    -----
 
 
     </script>
